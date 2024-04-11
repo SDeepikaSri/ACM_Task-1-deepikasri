@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Page</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <style>
+    /* Add CSS styles for the body */
+    body {
+      background-color: black; /* Set background color to black */
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+      overflow: hidden; /* Hide overflow to prevent scroll bars */
+      position: relative; /* Set position to relative for absolute positioning */
+    }
+
+    /* Add your CSS styles for the images here */
+    .image {
+      position: absolute;
+      opacity: 0; /* Initially hide the image */
+      z-index: 1; /* Ensure the image is above other content */
+    }
+
+    #image1 {
+      top: 10px; /* Adjust top position */
+      right: 10px; /* Position at the top right corner */
+      width: 400px; /* Set the width of the image */
+      height: 300px; /* Maintain aspect ratio */
+    }
+
+    #image2 {
+      top: 150px;
+      left: 15%;
+      transform: translate(-50%, -50%);
+      width: 500px; /* Set the width of the image */
+      height: 300px; /* Maintain aspect ratio */
+    }
+
+    #sub {
+      position: absolute;
+      top: 60%; /* Position it 20px above the bottom */
+      left: 55%;
+      transform: translateX(-50%);
+      background-color: rgba(10, 10, 10, 0.5); /* Semi-transparent white background */
+      padding: 20px; /* Add some padding */
+      border-radius: 10px; /* Rounded corners */
+      color: white; /* Text color */
+      font-size: 40px; /* Font size */
+      font-family: 'Arial', Times, serif; /* Font family */
+      font-weight: bold; /* Font weight */
+      opacity: 0; /* Initially hide the text box */
+      z-index: 1; /* Ensure the text box is above other content */
+    }
+
+    #textBox {
+      position: absolute;
+      top: 200px; /* Adjust the position */
+      left: 55%;
+      transform: translateX(-50%);
+      background-color: rgba(10, 10, 10, 0.5); /* Semi-transparent white background */
+      padding: 20px; /* Add some padding */
+      border-radius: 10px; /* Rounded corners */
+      color: white; /* Text color */
+      font-size: 40px; /* Font size */
+      font-family: 'Arial', Times, serif; /* Font family */
+      font-weight: bold; /* Font weight */
+      opacity: 0; /* Initially hide the text box */
+      z-index: 1; /* Ensure the text box is above other content */
+      border: 2px solid #f8f8f4;
+    }
+  </style>
+</head>
+<body>
+  <h1>Heading</h1> <!-- Adjust the position if needed -->
+  <img id="image1" class="image" src="/home/deepika/Downloads/VIT LOGO transparent.png" alt="Image 1"> <!-- Replace with your image URL -->
+  <img id="image2" class="image" src="/home/deepika/Downloads/acm-logo-2810628096.jpg" alt="Image 2"> <!-- Replace with your second image URL -->
+  <div id="sub">
+    <p>ACM - Association for Computing Machinery</p>
+  </div>
+  <div id="textBox">
+    <p>ACM - Association for Computing Machinery</p>
+    <p>ACM-VITCC, one of the most reputed and distinguished technical chapters in VIT, Chennai. We have been working with vision and determination since its inception in 2014, with aspirations for the advancement of computer science as a science and a profession.</p>
+  </div>
+  
+  <script>
+    // GSAP Animation
+    gsap.to('.image', {
+      duration: 1,
+      opacity: 1,
+      onComplete: () => {
+        // Animation for the text box after images are fully visible
+        gsap.to('#textBox', {
+          duration: 1,
+          opacity: 1,
+          ease: 'power2.inOut'
+        });
+      }
+    });
+  </script>
+</body>
+</html>
